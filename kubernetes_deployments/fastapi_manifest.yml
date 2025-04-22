@@ -19,19 +19,3 @@ spec:
         image: rivallar/hw20:latest
         ports:
             - containerPort: 8088
-        env:
-        - name: USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: username
-        - name: PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: my-secret
-              key: password
-        - name: CONFIGMAP_USERNAME
-          valueFrom:
-            configMapKeyRef:
-              name: myconfigmap
-              key: username
