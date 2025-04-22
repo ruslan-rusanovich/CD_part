@@ -8,3 +8,7 @@
 3. Adjust `variables.tf` file
 4. Run `terraform apply`
 
+### Cluster setup
+
+- Connect to a cluster: `aws eks update-kubeconfig --name your-cluster-name`
+- Install and setup ArgoCD
