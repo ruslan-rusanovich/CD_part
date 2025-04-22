@@ -11,4 +11,6 @@
 ### Cluster setup
 
 - Connect to a cluster: `aws eks update-kubeconfig --name your-cluster-name`
-- Install and setup ArgoCD
+- Install Ingress Controller: `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.1/deploy/static/provider/cloud/deploy.yaml`
+- Install, authorize and setup ArgoCD
+- Apply ArgoCD config: `kubectl apply -f .\argocd\application.yml`
