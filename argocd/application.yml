@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/ruslan-rusanovich/CD_part.git
     targetRevision: HEAD
-    path: kubernetes_deployments
+    path: kubernetes_deployments/charts/webapp
   destination:
     server: https://kubernetes.default.svc
     namespace: default
