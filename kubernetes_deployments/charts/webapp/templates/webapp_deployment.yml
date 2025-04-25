@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: my-fastapi
-        image: rivallar/hw20:20250425133123
+        image: {{ .Values.image }}
         ports:
             - containerPort: 8088
