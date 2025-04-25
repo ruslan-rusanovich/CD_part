@@ -10,6 +10,9 @@ spec:
     repoURL: https://github.com/ruslan-rusanovich/CD_part.git
     targetRevision: HEAD
     path: kubernetes_deployments/charts/webapp
+    helm:
+      valueFiles:
+        - values.yml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
