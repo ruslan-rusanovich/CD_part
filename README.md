@@ -16,7 +16,7 @@
 <pre>
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
-helm install monitoring -f .\kubernetes_deployments\prometheus_stack_values.yml prometheus-community/kube-prometheus-stack
+helm install monitoring -f prometheus_stack_values.yml prometheus-community/kube-prometheus-stack
 </pre>
 
 
