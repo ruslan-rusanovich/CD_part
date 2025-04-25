@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp-internal-service
+  name: {{ .Values.internalServiceName }}
 spec:
   selector:
-    app: my-fastapi
+    app: {{ .Values.webAppName }}
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8088
+    targetPort: {{ .Values.containerPort }}

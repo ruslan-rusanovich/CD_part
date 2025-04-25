@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-fastapi
+  name: {{ .Values.my-fastapi }}
   labels:
-    app: my-fastapi
+    app: {{ .Values.my-fastapi }}
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: my-fastapi
+      app: {{ .Values.my-fastapi }}
   template:
     metadata:
       labels:
-        app: my-fastapi
+        app: {{ .Values.my-fastapi }}
     spec:
       containers:
-      - name: my-fastapi
+      - name: {{ .Values.my-fastapi }}
         image: {{ .Values.image }}
         ports:
-            - containerPort: 8088
+            - containerPort: {{ .Values.containerPort }}
