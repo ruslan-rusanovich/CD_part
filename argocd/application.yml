@@ -11,8 +11,9 @@ spec:
     targetRevision: HEAD
     path: kubernetes_deployments/charts/webapp
     helm:
+      releaseName: webapp
       valueFiles:
-        - values.yml
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
