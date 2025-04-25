@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.webAppName }}
+  name: my-fastapi
   labels:
-    app: {{ .Values.webAppName }}
+    app: my-fastapi
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 2
   selector:
     matchLabels:
-      app: {{ .Values.webAppName }}
+      app: my-fastapi
   template:
     metadata:
       labels:
-        app: {{ .Values.webAppName }}
+        app: my-fastapi
     spec:
       containers:
-      - name: {{ .Values.webAppName }}
-        image: {{ .Values.image }}
+      - name: my-fastapi
+        image: rivallar/hw20:20250425133123
         ports:
-            - containerPort: {{ .Values.containerPort }}
+            - containerPort: 8088
