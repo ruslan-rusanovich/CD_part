@@ -1,11 +1,52 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: infrastructure-components
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kubernetes/ingress-nginx
+    targetRevision: controller-v1.12.1
+    path: deploy/static/provider/cloud
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ingress-nginx
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: kube-prometheus-stack-57.1.0
+    chart: kube-prometheus-stack
+    helm:
+      releaseName: monitoring
+      valueFiles:
+        - https://raw.githubusercontent.com/ruslan-rusanovich/CD_part/HEAD/prometheus_stack_values.yml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: ruslan-project-argo
   namespace: argocd
 spec:
   project: default
-
   source:
     repoURL: https://github.com/ruslan-rusanovich/CD_part.git
     targetRevision: HEAD
@@ -17,7 +58,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-
   syncPolicy:
     automated:
       selfHeal: true
