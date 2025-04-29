@@ -11,13 +11,6 @@
 ### Cluster setup
 
 - Connect to a cluster: `aws eks update-kubeconfig --name your-cluster-name` (ruslan-eks-cluster)
-- Install NGINX Ingress Controller: `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.12.1/deploy/static/provider/cloud/deploy.yaml`
-- Install kube-prometheus-stack:
-<pre>
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-helm install monitoring -f prometheus_stack_values.yml prometheus-community/kube-prometheus-stack
-</pre>
 
 
 ### ArgoCD setup
