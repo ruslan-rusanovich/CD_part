@@ -1,6 +1,6 @@
 ingressName: webapp-ingress
 internalServiceName: webapp-internal-service
 webAppName: my-fastapi
-replicaCount: 3
+replicaCount: 2
 containerPort: 8088
 image: rivallar/hw20:20250425165717
